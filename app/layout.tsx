@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import StyledJsxRegistry from "./registry";
+import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { getServerSession } from "next-auth";
@@ -20,7 +22,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <SessionProvider session={session}>
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}><StyledJsxRegistry><GluestackUIProvider mode="light">{children}</GluestackUIProvider></StyledJsxRegistry></body>
       </SessionProvider>
     </html>
   );

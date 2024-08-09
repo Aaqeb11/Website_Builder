@@ -5,7 +5,8 @@ import { ComponentTypes, EditorComponents } from "@/types/types";
 import { FaRegImages } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 
-export const EditorLayout: React.FC = () => {
+
+export const EditorLayout: React.FC = () => { 
     const {components,addComponent,removeComponent,selectComponent,selectedComponentId}= useBuildStore();
     const ref=useRef<HTMLDivElement>(null)
     const [{ canDrop, isOver }, drop] = useDrop(() => ({
@@ -44,10 +45,11 @@ export const EditorLayout: React.FC = () => {
                     style={{
                         backgroundColor: component.props?.backgroundColor,
                         width: `${component.props?.width}px`,
-                        height:`${component.props?.height}px`,
+                        height: `${component.props?.height}px`,
                     }}
                 >
-                    Box
+
+                    <p style={{ color: component.props?.color,fontSize:component.props?.fontSize }} className="" >{ component.props?.text || 'Text'}</p>
                     <DeleteButton />
                 </div>
             );
@@ -57,14 +59,14 @@ export const EditorLayout: React.FC = () => {
                 {...commonProps}
                 key={component.id}
                 >
-                    <p style={{ color: component.props?.color }} className="p-2 shadow-lg" >{ component.props?.text || 'Text'}</p>
+                    <p style={{ color: component.props?.color,fontSize:component.props?.fontSize }} className="" >{ component.props?.text || 'Text'}</p>
                     <DeleteButton />
                 </div>
             );
           case 'IMAGE':
             return (
-                <div {...commonProps} key={component.id}>
-                    <img src={component.props?.src || <FaRegImages/>} alt="Dragged image" />
+                <div {...commonProps} key={component.id} style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+                    <img style={{width:component.props?.width , height:component.props?.height}} src={component.props?.src || <FaRegImages/>} alt="Dragged image" />
                     <DeleteButton />
                 </div>
             );
@@ -75,7 +77,7 @@ export const EditorLayout: React.FC = () => {
     return (
         <>
            
-
+            
             {components.map(renderComponent)}
            
              <div ref={ref} className={`w-full h-[20vh] border-dashed border-2 border-sky-500 p-4 rounded-lg ${isOver && canDrop ? 'bg-green-300' : 'bg-inherit'}`}>

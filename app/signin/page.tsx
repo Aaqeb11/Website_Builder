@@ -15,18 +15,18 @@ const page = () => {
     }
   }, [sessionStatus, router]);
   return (
-    <div className="bg-purple-800 flex items-center justify-center min-h-screen shadow-lg">
-      <div className="w-[30vw] h-[50vh] flex flex-col items-center justify-center rounded-xl bg-white gap-14">
+    <div className="bg-[#FFDFD6] flex items-center justify-center min-h-screen shadow-lg">
+      <div className="w-[30vw] h-[50vh] flex flex-col items-center justify-center rounded-xl bg-white gap-14 bg-[#B692C2]">
         <div className="text-2xl font-bold">Welcome to Website Builder</div>
-        <div className="text-gray-500 ">Please sign in to continue.</div>
+        <div className="text-gray-500 text-[#694F8E]">Please sign in to continue.</div>
         <div>
           <button
             type="button"
-            className="w-full flex items-center justify-center border-2 border-black bg-black hover:bg-green-700  transition-all duration-300 font-medium rounded-lg py-3 mb-4 px-4"
+            className="w-full flex items-center justify-center border-2 border-black bg-[#E3A5C7] hover:bg-[#694F8E]  transition-all duration-300 font-medium rounded-lg py-3 mb-4 px-4 "
             onClick={() => signIn("google")}
           >
             <Image src={GoogleIcon} alt="Google Icon" width={24} height={24} />
-            <span className="ml-2 text-white tracking-tighter">
+            <span className="ml-2 text-white tracking-tighter text-black hover:text-white">
               Sign in with Google
             </span>
           </button>

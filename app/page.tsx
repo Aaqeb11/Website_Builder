@@ -5,6 +5,7 @@ import { DndProvider } from "react-dnd";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { Spinner } from '@/components/ui/spinner';
 
 export default function Home() {
   const router = useRouter();
@@ -19,7 +20,9 @@ export default function Home() {
   }, [sessionStatus, router]);
   return (
     <main>
-      <div>...Loading</div>
+      <div className="flex items-center justify-center bg-[#FFDFD6] min-h-screen">
+        <Spinner/>
+      </div>
     </main>
   );
 }
