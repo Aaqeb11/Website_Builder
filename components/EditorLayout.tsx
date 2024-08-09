@@ -49,7 +49,7 @@ export const EditorLayout: React.FC = () => {
                     }}
                 >
 
-                    <p style={{ color: component.props?.color,fontSize:component.props?.fontSize }} className="" >{ component.props?.text || 'Text'}</p>
+                    <p style={{ color: component.props?.color,fontSize:component.props?.fontSize }}  >{ component.props?.text || 'Text'}</p>
                     <DeleteButton />
                 </div>
             );
@@ -59,7 +59,7 @@ export const EditorLayout: React.FC = () => {
                 {...commonProps}
                 key={component.id}
                 >
-                    <p style={{ color: component.props?.color,fontSize:component.props?.fontSize }} className="" >{ component.props?.text || 'Text'}</p>
+                    <p style={{ color: component.props?.color,fontSize:component.props?.fontSize }}  >{ component.props?.text || 'Text'}</p>
                     <DeleteButton />
                 </div>
             );
